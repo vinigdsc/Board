@@ -6,19 +6,14 @@ import { FiX } from "react-icons/fi";
 export function SignInButton() {
   const [session] = useSession();
 
-  console.log(session);
-
   return session ? (
     <button
       type="button"
       className={styles.signInButton}
       onClick={() => signOut()}
     >
-      <img
-        src="https://sujeitoprogramador.com/steve.png"
-        alt="Foto do usuario"
-      />
-      Olá Vinicius
+      <img src={session.user.image} alt="Foto do usuario" />
+      Olá, {session.user.name}
       <FiX color="#737380" className={styles.closeIcon} />
     </button>
   ) : (
